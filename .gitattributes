@@ -1,0 +1,13 @@
+###############################
+# Git Line Endings            #
+###############################
+
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto eol=auto
+
+# Force source files to always use CR LF line endings.
+*.c text eol=crlf
+*.h text eol=crlf
+*.txt text eol=crlf
+
+*.md5 text eol=lf

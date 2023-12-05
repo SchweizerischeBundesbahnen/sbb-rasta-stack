@@ -1,0 +1,23 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Software Libary RaSTA Protocol Reference Stack
+Source: https://github.com/SchweizerischeBundesbahnen/sbb-rasta-stack
+
+# Source Files
+Files:
+    source/*
+    CMakeLists.txt
+Copyright: 2022-2023 SBB AG
+License: MIT
+
+# Documentation Files
+Files:
+    docs/*
+    README.md
+    CODE_OF_CONDUCT.md
+    CODING_STANDARDS.md
+    CONTRIBUTING.md
+    rasta_stack_content.md5
+    .gitignore
+    .gitattributes
+Copyright: 2022-2023 SBB AG
+License: MIT
