@@ -1,89 +1,63 @@
-# Open Source Repo Template
+# Software Libary RaSTA Protocol Reference Stack
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://spdx.org/licenses/MIT.html)
+[![REUSE status](https://api.reuse.software/badge/github.com/SchweizerischeBundesbahnen/sbb-rasta-stack)](https://api.reuse.software/info/github.com/SchweizerischeBundesbahnen/sbb-rasta-stack)
 
-> **Note:** This is a repository template. This README serves both as an example for your new repository, and also contains information on how to use the repository template.
+This framework contains the SBB (Swiss Federal Railways) Software Library RaSTA
+Protocol Reference Stack. It allows an integration of the source code in an
+application for EULYNX Object Controllers.
 
-This repository is a template for creating new open-source repositories. It contains all the necessary files and documents to ensure that your open-source project is well-organized and follows best practices.
+:information_source: This Software Library Code was developed for proof of
+concept
 
-#### Table Of Contents
+## Background
+In a cross-industry approach with the aviation industry, Schweizerische
+Bundesbahnen AG (SBB AG) has procured and integrated a platform that allows SBB
+to perform proofs of concept (PoC) for the EULYNX Object Controller (OC). One of
+these PoC has demonstrated that it is possible to run both safety-relevant and
+non-safety-relevant software simultaneously and independently of each other on a
+common processor system using currently available operating systems.
 
-- [Introduction](#Introduction)
-- [Getting Started](#Getting-Started)
-- [Contributing](#Contributing)
-- [Documentation](#Documentation)
-- [Code of Conduct](#code-of-conduct)
-- [Coding Standards](#coding-standards)
-- [License](#License)
+The EULYNX OC behaviour has been demonstrated using a simulated EULYNX
+interlocking, a real main signal and other simulated external equipment.
 
-<a id="Introduction"></a>
+The paper was published in [SIGNAL+DRAHT | Issue 06/2023 | "Integrated safety and security through software-based segregation in the EULYNX Object Controller"](https://eurailpress-archiv.de/SingleView.aspx?show=5301114)
 
-## Introduction
+## Content & Version
+| Version | Content |
+|:---|:---|
+| 1.1.0 | Source Code (Safety and Retransmission Layer & Redundancy Layer) <br/>Source Code Documentation <br/>User Manual |
 
-When creating an open-source project, it's important to establish a clear structure and set of guidelines to ensure that the project is maintainable and sustainable. This repository provides a basic template that can be used as a starting point for new projects.
+## Getting Started
+### Library Integration
+* To use this Software Library develop your application according to EN 51026, EN 50128.
+* Integrate and adapt the library source code to your application, see [User Manual](docs/SBB-RaSTA-084-UserManual-1.pdf)
 
-The template includes the following features:
+### Building Library
+A basic CMake build system is integrated so the static libraries can be built
+and a `zip`-package be exported including this libraries.
+The following tools are need for the instructions below:
+* CMake
+* Ninja
+* GNU C Compiler
 
-- A basic file structure for organizing code, documentation, and related files
-- A CONTRIBUTING.md file with guidelines for contributing to the project
-- A CODE_OF_CONDUCT.md file with guidelines for community behavior
-- A LICENSE.md file with information about the open-source license that applies to the project
+| Steps | Details |
+|:---|:---|
+| 1. Open a ***Bash shell*** | - |
+| 2. Navigate into cloned git workspace | - |
+| 3. Build cmake project | `cmake -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S. -B./build -G Ninja` |
+| 4. Build RaSTA libraries | `cmake --build ./build --config Debug --target all --` |
+| 5. Enter ***build*** folder | `cd build` |
+| 6. Run CPack to build zip File | `cpack` |
+| 7. Export the generated ***RastaProtocolReferenceStack-*.zip*** Package and use the library | - |
 
-<a id="Getting-Started"></a>
-
-## Getting-Started
-
-Instructions for getting started with the repository, for e.g.:
-
-- Installation instructions
-- Usage instructions
-
-> To use this template please follow the steps as below:
->
-> - If creating via Self Service Portal (WIP)
-> - If Creating via GitHub Interface
->   - Click the "Use this template" button above, select "Create a new repository"
->   - Give your repository a name, and optionally a description. The owner will always be "SchweizerischeBundesbahnen".
->   - Set the visibility of your repository to "Public".
->   - Do not select "Include all branches".
->   - Click the "Create repository from template" button and you're done!
-
-<a id="Documentation"></a>
-
-## Documentation
-
-Links to all relevant documentation files, including:
-
-- [CODING_STANDARDS.md](CODING_STANDARDS.md)
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-- [LICENSE.md](LICENSE.md)
-
-<a id="License"></a>
+### Further documentation
+The following documents are available internally at SBB or on request (please open an [issue](CONTRIBUTING.md#submit-issue)):
+* ISA Inspection Report ("Inspection Report about the Software Library RaSTA
+  Protocol Reference Stack, Version 1.1.0, for the Integration into an EULYNX OC
+  Platform, according to EN 50128:2011")
+* Specifications according EN 50128:2011 SIL4
+* Verification kit for component tests, integration tests according EN 50128:2011 SIL4
+* Unit Tests according EN 50128:2011 SIL4
 
 ## License
-
-> Choose a license that meets the organization's legal requirements and supports the sharing and modification of the code.
-> Please follow the internal Open Source guidelines while chosing the License.
-> This repository includes two [suggested license texts](./suggested_licenses) (Apache 2.0 and EPL 2.0). Rename the license you prefer to [LICENSE.md](LICENSE.md) and remove the other one.
-
-This project is licensed under [INSERT LICENSE].
-
-<a id="Contributing"></a>
-
-## Contributing
-
-Open-source projects thrive on collaboration and contributions from the community. To encourage others to contribute to your project, you should provide clear guidelines on how to get involved.
-
-This repository includes a [CONTRIBUTING.md](CONTRIBUTING.md) file that outlines how to contribute to the project, including how to submit bug reports, feature requests, and pull requests.
-
-<a id="coding-standards"></a>
-
-## Coding Standards
-
-To maintain a high level of code quality and consistency across your project, you should establish coding standards that all contributors should follow.
-
-This repository includes a [CODING_STANDARDS.md](CODING_STANDARDS.md) file that outlines the coding standards that you should follow when contributing to the project.
-
-<a id="code-of-conduct"></a>
-
-## Code of Conduct
-
-To ensure that your project is a welcoming and inclusive environment for all contributors, you should establish a good [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+The code is released under the [MIT](LICENSES/MIT.txt) license.
