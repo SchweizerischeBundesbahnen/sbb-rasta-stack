@@ -1,13 +1,13 @@
-# Software Libary RaSTA Protocol Reference Stack
+# Software Libary RaSTA Protocol Reference Stack according to EN 50128:2011 SIL4
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://spdx.org/licenses/MIT.html)
 [![REUSE status](https://api.reuse.software/badge/github.com/SchweizerischeBundesbahnen/sbb-rasta-stack)](https://api.reuse.software/info/github.com/SchweizerischeBundesbahnen/sbb-rasta-stack)
 
-This framework contains the SBB (Swiss Federal Railways) Software Library RaSTA
+This framework contains the SBB AG (Swiss Federal Railways) Software Library RaSTA
 Protocol Reference Stack. It allows an integration of the source code in an
-application for EULYNX Object Controllers.
+application for e.g. EULYNX Object Controllers.
 
-:information_source: This Software Library Code was developed for proof of
-concept
+:information_source: This Software Library Code was developed according to EN 50128:2011 SIL4.
+SBB AG used the RaSTA Stack for proof of concept of an EULYNX Object Controller.
 
 ## Background
 In a cross-industry approach with the aviation industry, Schweizerische
