@@ -30,7 +30,7 @@ The paper was published in [SIGNAL+DRAHT | Issue 06/2023 | "Integrated safety an
 ## Getting Started
 ### Library Integration
 * To use this Software Library develop your application according to EN 51026, EN 50128.
-* Integrate and adapt the library source code to your application, see [User Manual](docs/SBB-RaSTA-084-UserManual-1.pdf)
+* Integrate and adapt the library source code to your application, see [User Manual](docs/SBB-RaSTA-084-UserManual-2.pdf)
 
 ### Building Library / Running Unit Tests
 A basic CMake build system is integrated so the static libraries can be built
