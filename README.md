@@ -32,22 +32,32 @@ The paper was published in [SIGNAL+DRAHT | Issue 06/2023 | "Integrated safety an
 * To use this Software Library develop your application according to EN 51026, EN 50128.
 * Integrate and adapt the library source code to your application, see [User Manual](docs/SBB-RaSTA-084-UserManual-1.pdf)
 
-### Building Library
+### Building Library / Running Unit Tests
 A basic CMake build system is integrated so the static libraries can be built
 and a `zip`-package be exported including this libraries.
+Additionally the unit tests can be build and executed.
 The following tools are need for the instructions below:
 * CMake
 * Ninja
 * GNU C Compiler
+* Google Test/Mock ([Version 1.12.1](https://github.com/google/googletest/releases/tag/release-1.12.1) was used for development)
+
+> `GoogleTest` library must be installed on your system.\
+A detailed guide can be found in the official [GoogleTest documentation](https://github.com/google/googletest/blob/release-1.12.1/googletest/README.md#standalone-cmake-project).
+
 
 | Steps | Details |
 |:---|:---|
 | 1. Open a ***Bash shell*** | - |
 | 2. Navigate into cloned git workspace | - |
 | 3. Build cmake project | `cmake -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S. -B./build -G Ninja` |
+| 3.1 If `cmake` is not finding your `GoogleTest` installation by itself, the following ***option*** can be set to specify your installation path | `-DGOOGLE_TEST_PATH:PATH="<path-to-your-google-test-installation>"` |
 | 4. Build RaSTA libraries | `cmake --build ./build --config Debug --target all --` |
-| 5. Enter ***build*** folder | `cd build` |
-| 6. Run CPack to build zip File | `cpack` |
+| 5. Run all unit tests | `ctest --test-dir ./build` |
+| To run only a subset of the tests, one of the following `options` can be passed to ctest: | - |
+| 5.1 Unit tests ***Safety & Retransmission Layer*** | `-E "^gtest_red.*\|^gtest_srIntegration.*"` |
+| 5.2 Unit tests ***Redundancy Layer*** | `-E "^gtest_sr.*\|^gtest_redIntegration.*\|^gtest_ra.*"` |
+| 6. Run CPack to build zip File with the static RaSTA libraries | `cpack` |
 | 7. Export the generated ***RastaProtocolReferenceStack-*.zip*** Package and use the library | - |
 
 ### Further documentation
@@ -57,7 +67,6 @@ The following documents are available internally at SBB or on request (please op
   Platform, according to EN 50128:2011")
 * Specifications according EN 50128:2011 SIL4
 * Verification kit for component tests, integration tests according EN 50128:2011 SIL4
-* Unit Tests according EN 50128:2011 SIL4
 
 ## License
 The code is released under the [MIT](LICENSES/MIT.txt) license.
