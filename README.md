@@ -65,7 +65,8 @@ A detailed guide can be found in the official [GoogleTest documentation](https:/
 | 7. Export the generated ***RastaProtocolReferenceStack-*.zip*** Package and use the library | - |
 
 ### Further documentation
-The following documents are available internally at SBB or on request (please open an [issue](CONTRIBUTING.md#submit-issue)):
+The following documents are available internally at SBB or on request.
+If we should send you any of the mentioned documents, please send an email to [open.rasta@sbb.ch](mailto:open.rasta@sbb.ch).
 * ISA Inspection Report ("Inspection Report about the Software Library RaSTA
   Protocol Reference Stack, Version 1.1.0, for the Integration into an EULYNX OC
   Platform, according to EN 50128:2011")
