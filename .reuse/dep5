@@ -6,6 +6,7 @@ Source: https://github.com/SchweizerischeBundesbahnen/sbb-rasta-stack
 Files:
     source/*
     CMakeLists.txt
+    cmake_helper/*
 Copyright: 2022-2023 SBB AG
 License: MIT
 
