@@ -8,6 +8,9 @@
 # Force source files to always use CR LF line endings.
 *.c text eol=crlf
 *.h text eol=crlf
+*.cc text eol=crlf
+*.hh text eol=crlf
+*.py text eol=crlf
 *.txt text eol=crlf
 
 *.md5 text eol=lf
