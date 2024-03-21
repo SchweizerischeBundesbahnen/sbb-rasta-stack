@@ -1,4 +1,4 @@
-# Software Libary RaSTA Protocol Reference Stack according to EN 50128:2011 SIL4
+# Software Library RaSTA Protocol Reference Stack according to EN 50128:2011 SIL4
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://spdx.org/licenses/MIT.html)
 [![REUSE status](https://api.reuse.software/badge/github.com/SchweizerischeBundesbahnen/sbb-rasta-stack)](https://api.reuse.software/info/github.com/SchweizerischeBundesbahnen/sbb-rasta-stack)
 
