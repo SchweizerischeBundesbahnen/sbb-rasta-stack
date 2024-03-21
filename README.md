@@ -32,6 +32,10 @@ The paper was published in [SIGNAL+DRAHT | Issue 06/2023 | "Integrated safety an
 * To use this Software Library develop your application according to EN 51026, EN 50128.
 * Integrate and adapt the library source code to your application, see [User Manual](docs/SBB-RaSTA-084-UserManual-2.pdf)
 
+### Checking File Integrity
+To verify the integrity of the source files, their MD5 checksum can be checked against the published MD5 checksums from the ISA Inspection Report. All published checksums are stored in the [rasta_stack_content.md5](rasta_stack_content.md5)-File. They can be checked using a ***bash shell*** with the following command: `md5sum -c rasta_stack_content.md5`
+> ***Important***: File checksums were generated with line ending set to `CRLF`.
+
 ### Building Library / Running Unit Tests
 A basic CMake build system is integrated so the static libraries can be built
 and a `zip`-package be exported including this libraries.
