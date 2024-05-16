@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 # =========== options ===================
 set(GOOGLE_TEST_PATH "" CACHE PATH "Path to GoogleTest installation folder")
+option(TESTING_ON "Enable unit tests" ON)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
@@ -31,16 +32,20 @@ else()
 endif()
 
 # =========== unit tests ===================
-if(GOOGLE_TEST_PATH)
-  message(STATUS "GOOGLE_TEST_PATH is set to: ${GOOGLE_TEST_PATH}")
-  find_package(GTest REQUIRED PATHS ${GOOGLE_TEST_PATH} NO_SYSTEM_ENVIRONMENT_PATH)
-else()
-  find_package(GTest REQUIRED)
-endif()
+if(TESTING_ON)
+  if(GOOGLE_TEST_PATH)
+    message(STATUS "GOOGLE_TEST_PATH is set to: ${GOOGLE_TEST_PATH}")
+    find_package(GTest REQUIRED PATHS ${GOOGLE_TEST_PATH} NO_SYSTEM_ENVIRONMENT_PATH)
+  else()
+    find_package(GTest REQUIRED)
+  endif()
 
-include(GoogleTest)
-include(CTest)
-include(gtest)
+  include(GoogleTest)
+  include(CTest)
+  include(gtest)
+else()
+  message(STATUS "Unit tests are disabled")
+endif()
 
 # =========== modules ===================
 add_subdirectory(source/modules)
