@@ -39,11 +39,12 @@ To verify the integrity of the source files, their MD5 checksum can be checked a
 ### Building Library / Running Unit Tests
 A basic CMake build system is integrated so the static libraries can be built
 and a `zip`-package be exported including this libraries.
-Additionally the unit tests can be build and executed.
 The following tools are need for the instructions below:
 * CMake
 * Ninja
 * GNU C Compiler
+
+Additionally unit tests can be build and executed. The following tools are needed for unit testing:
 * Google Test/Mock ([Version 1.12.1](https://github.com/google/googletest/releases/tag/release-1.12.1) was used for development)
 
 > `GoogleTest` library must be installed on your system.\
@@ -56,6 +57,7 @@ A detailed guide can be found in the official [GoogleTest documentation](https:/
 | 2. Navigate into cloned git workspace | - |
 | 3. Build cmake project | `cmake -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S. -B./build -G Ninja` |
 | 3.1 If `cmake` is not finding your `GoogleTest` installation by itself, the following ***option*** can be set to specify your installation path | `-DGOOGLE_TEST_PATH:PATH="<path-to-your-google-test-installation>"` |
+| 3.2. Build cmake project without tests | `cmake -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DTESTING_ON:BOOL=OFF -S. -B./build -G Ninja` |
 | 4. Build RaSTA libraries | `cmake --build ./build --config Debug --target all --` |
 | 5. Run all unit tests | `ctest --test-dir ./build` |
 | To run only a subset of the tests, one of the following `options` can be passed to ctest: | - |
