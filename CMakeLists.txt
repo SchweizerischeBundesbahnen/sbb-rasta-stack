@@ -30,6 +30,8 @@ else()
   message([FATAL_ERROR] Invalid build type!)
 endif()
 
+option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
+
 # =========== unit tests ===================
 if(GOOGLE_TEST_PATH)
   message(STATUS "GOOGLE_TEST_PATH is set to: ${GOOGLE_TEST_PATH}")
