@@ -35,15 +35,18 @@ set(SRC_LIST
 add_library(${LIB_NAME} ${HEADER_LIST} ${SRC_LIST})
 
 # We need this directory, and users of our library will need it too
-target_include_directories(${LIB_NAME} PUBLIC inc)
+target_include_directories(${LIB_NAME} PUBLIC
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc>
+	$<INSTALL_INTERFACE:include>
+)
 target_include_directories(${LIB_NAME} PRIVATE src)
 
 target_link_libraries(${LIB_NAME} PRIVATE
 	rasta_common
 )
 
-INSTALL(TARGETS ${LIB_NAME} ARCHIVE DESTINATION lib)
-INSTALL(FILES ${HEADER_LIST} DESTINATION inc/${LIB_NAME})
+INSTALL(TARGETS ${LIB_NAME} EXPORT sbb-rasta-config ARCHIVE DESTINATION lib)
+INSTALL(FILES ${HEADER_LIST} DESTINATION include/${LIB_NAME})
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME
 	AND BUILD_TESTING)

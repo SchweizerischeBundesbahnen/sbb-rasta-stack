@@ -45,6 +45,8 @@ include(gtest)
 # =========== modules ===================
 add_subdirectory(source/modules)
 
+install(EXPORT sbb-rasta-config NAMESPACE SBB:: DESTINATION "lib/cmake/SBB-rasta")
+
 # =========== cpack ===================
 set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
 set(CPACK_PACKAGE_VENDOR "SBB AG")
